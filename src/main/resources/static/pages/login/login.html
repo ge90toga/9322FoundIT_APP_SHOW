@@ -1,0 +1,46 @@
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/">Found IT</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<toaster-container toaster-options="{'time-out': 1000}"></toaster-container>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="page-header">Login</h4>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form ng-submit="submit()">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input ng-model="data.form.email"
+                                   type="text" class="form-control" placeholder="Enter Email"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input ng-model="data.form.password"
+                                   type="password" class="form-control" placeholder="Enter Password"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Login Type</label>
+                            <select class="form-control"
+                                    ng-model="data.form.type"
+                                    ng-options="option for option in data.loginTypes">
+                            </select>
+                        </div>
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-default btn-success">Submit</button>
+                            <a href="#/register" class="btn btn-default btn-warning">Sign up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
