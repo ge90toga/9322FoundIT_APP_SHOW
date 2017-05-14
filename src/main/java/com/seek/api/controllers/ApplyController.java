@@ -90,9 +90,9 @@ public class ApplyController {
     public ResponseEntity<?> getMyApplications() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
-        String url = foundITConfig.getJobServiceHost() + "/api/apply/my";
+        String url = foundITConfig.getJobServiceHost() + "/api/apply/my/?username=" + username;
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Application> responseEntity = restTemplate.getForEntity(url, Application.class);
+        ResponseEntity<Application[]> responseEntity = restTemplate.getForEntity(url, Application[].class);
 
 //        List<Application> applications =  jobService.findApplicationByApplicant(username);
         return new ResponseEntity<>(responseEntity.getBody(), HttpStatus.OK);

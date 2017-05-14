@@ -46,7 +46,7 @@ public class AdminController {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
 //        User user = userService.findUserByUsername(username).get();
 
-        String url = foundITConfig.getJobServiceHost() + "/review/combo?username=" + username;
+        String url = foundITConfig.getJobServiceHost() + "/api/admin/review/combo?username=" + username;
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<ReviewDTO[]> responseEntity = restTemplate.getForEntity(url, ReviewDTO[].class);
 
@@ -58,7 +58,7 @@ public class AdminController {
     @RequestMapping(value = "/review/{id}", method = RequestMethod.GET)
     public ResponseEntity<Review> getReviewById(@PathVariable Long id) {
 
-        String url = foundITConfig.getJobServiceHost() + "/review/" + id;
+        String url = foundITConfig.getJobServiceHost() + "/api/admin/review/" + id;
         RestTemplate restTemplate = new RestTemplate();
 
         ResponseEntity<Review> responseEntity = restTemplate.getForEntity(url, Review.class);
@@ -74,7 +74,7 @@ public class AdminController {
         review.setReviewerID(username);
         review.setReviewerName(user.getName());
 
-        String url = foundITConfig.getJobServiceHost() + "/review/";
+        String url = foundITConfig.getJobServiceHost() + "/api/admin/review/";
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Review> responseEntity = restTemplate.postForEntity(url, review, Review.class);
 
@@ -111,7 +111,7 @@ public class AdminController {
     @RequestMapping(value = "/review", method = RequestMethod.PUT)
     public ResponseEntity<Review> updateReview(@RequestBody Review review) {
 
-        String url = foundITConfig.getJobServiceHost() + "/review";
+        String url = foundITConfig.getJobServiceHost() + "/api/admin/review";
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.put(url, review);   // TODO put
 
@@ -122,7 +122,7 @@ public class AdminController {
     @RequestMapping(value = "/poll", method = RequestMethod.POST)
     public ResponseEntity<?> organizePoll(@RequestBody PollDTO pollDTO) {
 
-        String url = foundITConfig.getJobServiceHost() + "/poll";
+        String url = foundITConfig.getJobServiceHost() + "/api/admin/poll";
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, pollDTO, String.class);
 
