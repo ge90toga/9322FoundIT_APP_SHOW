@@ -2,8 +2,14 @@ foundITApp.controller('seekerListCtrl', function ($scope, seekerService, toaster
     $scope.init = function () {
         console.log('seekerListCtrl ctrl');
         $scope.data = {
-            jobList: []
+            jobList: [],
+            selectionList: ['Full Time', 'PartTime', 'Casual'],
+            search: {
+                title: '',
+                type: ''
+            }
         };
+        $scope.data.search.type = $scope.data.selectionList[0];
         $scope.loadJobList();
     };
 
@@ -15,6 +21,7 @@ foundITApp.controller('seekerListCtrl', function ($scope, seekerService, toaster
             console.log('loading error');
         })
     };
+
 
     $scope.init();
 });
