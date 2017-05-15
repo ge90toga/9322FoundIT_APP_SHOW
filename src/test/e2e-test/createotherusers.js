@@ -64,7 +64,7 @@ let users = {
 };
 
 let request = require('sync-request');
-let baseUrl = 'http://localhost:8080';
+let baseUrl = 'http://192.168.99.100:8080';
 let apiRegister = '/api/register';
 let apiJobs = '/api/jobs';
 let apiLogin = '/api/login';

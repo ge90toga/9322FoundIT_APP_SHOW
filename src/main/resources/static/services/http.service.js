@@ -1,7 +1,7 @@
 // SERVICES
 foundITApp.service('httpService', function ($http, StorageService) {
     var self = {
-        baseUrl: 'http://localhost:8080/',
+        baseUrl: 'http://192.168.99.100:8080/',
         /**
          *
          * @param path
